@@ -1,0 +1,37 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base", ":automergeMinor", ":automergeDigest"],
+  "timezone": "America/New_York",
+  "schedule": ["at any time"],
+  "labels": ["dependencies"],
+  "assigneesFromCodeOwners": true,
+  "reviewersFromCodeOwners": true,
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update Homebrew formula versions",
+      "fileMatch": ["^.+\\.rb$"],
+      "matchStrings": [
+        "url \"https://github\\.com/(?<depName>[^/]+/[^/]+)/archive/refs/tags/v(?<currentValue>[^\"]+)\\.tar\\.gz\"\\s+sha256 \"(?<currentDigest>[a-f0-9]{64})\""
+      ],
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "semver"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchManagers": ["regex"],
+      "matchDepNames": ["mattstruble/git-ai"],
+      "commitMessageTopic": "git-ai",
+      "commitMessageAction": "Update",
+      "commitMessageExtra": "to {{newVersion}}",
+      "prTitle": "Update git-ai to {{newVersion}}",
+      "prBody": "This PR updates the git-ai Homebrew formula to version {{newVersion}}.\n\n**Changes:**\n- URL updated to point to new release tarball\n- SHA256 hash updated\n\n**Release Notes:** [{{newVersion}}]({{sourceUrl}}/releases/tag/v{{newVersion}})",
+      "automerge": true,
+      "automergeType": "pr",
+      "automergeStrategy": "squash",
+      "ignoreTests": false,
+      "requiredStatusChecks": null
+    }
+  ]
+}
