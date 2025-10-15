@@ -22,9 +22,9 @@
         "/^.+\\.rb$/"
       ],
       "matchStrings": [
-        "url \"https://github\\.com/(?<depName>[^/]+/[^/]+)/releases/download/v(?<currentValue>[^/\"]+)/(?<assetName>[^\"]+)\"\\s+sha256 \"(?<currentDigest>[a-f0-9]{64})\""
+        "url \"https://github\\.com/(?<depName>[^/]+/[^/]+)/releases/download/(?<currentValue>v[^/\"]+)/(?<assetName>[^\"]+)\"\\s+sha256 \"(?<currentDigest>[a-f0-9]{64})\""
       ],
-      "datasourceTemplate": "github-releases",
+      "datasourceTemplate": "github-tags",
       "versioningTemplate": "semver"
     }
   ],
