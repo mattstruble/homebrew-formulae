@@ -26,7 +26,7 @@
       ],
       "datasourceTemplate": "github-tags",
       "versioningTemplate": "semver",
-      "autoReplaceStringTemplate": "  url \"https://github.com/{{{depName}}}/archive/refs/tags/{{{newValue}}}.tar.gz\"\\n  sha256 \"{{{newDigest}}}\""
+      "autoReplaceStringTemplate": "\\n  url \"https://github.com/{{{depName}}}/archive/refs/tags/{{{newValue}}}.tar.gz\"\\n  sha256 \"{{{newDigest}}}\""
     }
   ],
   "packageRules": [
