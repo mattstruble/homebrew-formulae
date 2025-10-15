@@ -22,12 +22,11 @@
         "/^.+\\.rb$/"
       ],
       "matchStrings": [
-        "\\s+url \"https://github\\.com/(?<depName>[^/]+/[^/]+)/archive/refs/tags/v(?<currentValue>[^/\"]+)\\.tar\\.gz\"\\n\\s+sha256 \"(?<currentDigest>[a-f0-9]{64})\""
+        "\\s+url \"https://github\\.com/(?<depName>[^/]+/[^/]+)/archive/refs/tags/(?<currentValue>v[^/\"]+)\\.tar\\.gz\"\\n\\s+sha256 \"(?<currentDigest>[a-f0-9]{64})\""
       ],
-      "datasourceTemplate": "github-releases",
+      "datasourceTemplate": "github-releases", 
       "versioningTemplate": "semver",
-      "extractVersionTemplate": "^v(?<version>.*)$",
-      "autoReplaceStringTemplate": "\\n  url \"https://github.com/{{{depName}}}/archive/refs/tags/v{{{newValue}}}.tar.gz\"\\n  sha256 \"{{{newDigest}}}\""
+      "autoReplaceStringTemplate": "\\n  url \"https://github.com/{{{depName}}}/archive/refs/tags/{{{newValue}}}.tar.gz\"\\n  sha256 \"{{{newDigest}}}\""
     }
   ],
   "packageRules": [
