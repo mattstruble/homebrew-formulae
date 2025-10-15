@@ -22,7 +22,7 @@
         "/^.+\\.rb$/"
       ],
       "matchStrings": [
-        "url \"https://github\\.com/(?<depName>[^/]+/[^/]+)/releases/download/v(?<currentValue>v[^/\"]+)/[^\"]+\"\\s+sha256 \"(?<currentDigest>[a-f0-9]{64})\""
+        "url \"https://github\\.com/(?<depName>[^/]+/[^/]+)/releases/download/(?<currentValue>v[^/\"]+)/[^\"]+\"\\s+sha256 \"(?<currentDigest>[a-f0-9]{64})\""
       ],
       "extractVersionTemplate": "^v(?<version>.*)$",
       "datasourceTemplate": "github-releases",
