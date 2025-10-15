@@ -1,9 +1,0 @@
-# Global owners
-* @mattstruble
-
-# Formula files require review
-*.rb @mattstruble
-
-# Configuration files require review
-renovate.json @mattstruble
-.github/ @mattstruble
