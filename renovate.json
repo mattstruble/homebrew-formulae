@@ -22,9 +22,9 @@
         "/^.+\\.rb$/"
       ],
       "matchStrings": [
-        "url \"https://github\\.com/(?<depName>[^/]+/[^/]+)/releases/download/v(?<currentValue>[^/\"]+)/[^\"]+\"\\s+sha256 \"(?<currentDigest>[a-f0-9]{64})\""
+        "url \"https://github\\.com/(?<depName>[^/]+/[^/]+)/archive/refs/tags/(?<currentValue>v[^/\"]+)\\.tar\\.gz\"\\s+sha256 \"(?<currentDigest>[a-f0-9]{40,64})\""
       ],
-      "datasourceTemplate": "github-releases",
+      "datasourceTemplate": "github-releases", 
       "versioningTemplate": "semver"
     }
   ],
@@ -36,11 +36,6 @@
       "matchDepNames": [
         "mattstruble/git-ai"
       ],
-      "commitMessageTopic": "git-ai",
-      "commitMessageAction": "Update",
-      "commitMessageExtra": "to {{newVersion}}",
-      "prTitle": "Update git-ai to {{newVersion}}",
-      "prBody": "This PR updates the git-ai Homebrew formula to version {{newVersion}}.\n\n**Changes:**\n- Binary URLs updated to point to new release binaries\n- SHA256 hashes updated for all supported platforms:\n  - macOS (Intel & Apple Silicon)\n  - Linux (x86_64 & ARM64)\n\n**Release Notes:** [{{newVersion}}]({{sourceUrl}}/releases/tag/v{{newVersion}})",
       "automerge": true,
       "automergeType": "pr",
       "automergeStrategy": "squash",
