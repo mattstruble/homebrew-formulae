@@ -12,7 +12,7 @@
       "description": "Update Homebrew formula versions",
       "fileMatch": ["^.+\\.rb$"],
       "matchStrings": [
-        "url \"https://github\\.com/(?<depName>[^/]+/[^/]+)/archive/refs/tags/v(?<currentValue>[^\"]+)\\.tar\\.gz\"\\s+sha256 \"(?<currentDigest>[a-f0-9]{64})\""
+        "url \"https://github\\.com/(?<depName>[^/]+/[^/]+)/releases/download/v(?<currentValue>[^/\"]+)/[^\"]+\"\\s+sha256 \"(?<currentDigest>[a-f0-9]{64})\""
       ],
       "datasourceTemplate": "github-releases",
       "versioningTemplate": "semver"
@@ -26,7 +26,7 @@
       "commitMessageAction": "Update",
       "commitMessageExtra": "to {{newVersion}}",
       "prTitle": "Update git-ai to {{newVersion}}",
-      "prBody": "This PR updates the git-ai Homebrew formula to version {{newVersion}}.\n\n**Changes:**\n- URL updated to point to new release tarball\n- SHA256 hash updated\n\n**Release Notes:** [{{newVersion}}]({{sourceUrl}}/releases/tag/v{{newVersion}})",
+      "prBody": "This PR updates the git-ai Homebrew formula to version {{newVersion}}.\n\n**Changes:**\n- Binary URLs updated to point to new release binaries\n- SHA256 hashes updated for all supported platforms:\n  - macOS (Intel & Apple Silicon)\n  - Linux (x86_64 & ARM64)\n\n**Release Notes:** [{{newVersion}}]({{sourceUrl}}/releases/tag/v{{newVersion}})",
       "automerge": true,
       "automergeType": "pr",
       "automergeStrategy": "squash",
