@@ -22,7 +22,7 @@
         "/^.+\\.rb$/"
       ],
       "matchStrings": [
-        "\\s+url \"https://github\\.com/(?<depName>[^/]+/[^/]+)/archive/refs/tags/(?<currentValue>v[^/\"]+)\\.tar\\.gz\"\\n\\s+sha256 \"(?<currentDigest>[a-f0-9]{64})\""
+        "\\s+url \"https://github\\.com/(?<depName>[^/]+/[^/]+)/archive/refs/tags/(?<currentValue>v[^/\"]+)\\.tar\\.gz\"\\n\\s+sha256 \"(?<currentDigest>[a-f0-9]{40,64})\""
       ],
       "datasourceTemplate": "github-releases", 
       "versioningTemplate": "semver",
