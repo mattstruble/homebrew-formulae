@@ -2,7 +2,7 @@ class GitAi < Formula
   desc "AI-assisted git workflow with cursor-agent integration"
   homepage "https://github.com/mattstruble/git-ai"
   url "https://github.com/mattstruble/git-ai/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "d4b78400e7ac0cb13329156c93811685765def1cf9f18be5deb3b59e1af6e0c4"
+  sha256 "fccd96b942b745a82b5dc5c73cf20453a2f326f7"
   license "MIT"
   head "https://github.com/mattstruble/git-ai.git", branch: "main"
 
