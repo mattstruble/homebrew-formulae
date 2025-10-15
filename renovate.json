@@ -1,16 +1,26 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base", ":automergeMinor", ":automergeDigest"],
+  "extends": [
+    "config:recommended",
+    ":automergeMinor",
+    ":automergeDigest"
+  ],
   "timezone": "America/New_York",
-  "schedule": ["at any time"],
-  "labels": ["dependencies"],
+  "schedule": [
+    "at any time"
+  ],
+  "labels": [
+    "dependencies"
+  ],
   "assigneesFromCodeOwners": true,
   "reviewersFromCodeOwners": true,
   "customManagers": [
     {
       "customType": "regex",
       "description": "Update Homebrew formula versions",
-      "fileMatch": ["^.+\\.rb$"],
+      "managerFilePatterns": [
+        "/^.+\\.rb$/"
+      ],
       "matchStrings": [
         "url \"https://github\\.com/(?<depName>[^/]+/[^/]+)/releases/download/v(?<currentValue>[^/\"]+)/[^\"]+\"\\s+sha256 \"(?<currentDigest>[a-f0-9]{64})\""
       ],
@@ -20,8 +30,12 @@
   ],
   "packageRules": [
     {
-      "matchManagers": ["regex"],
-      "matchDepNames": ["mattstruble/git-ai"],
+      "matchManagers": [
+        "custom.regex"
+      ],
+      "matchDepNames": [
+        "mattstruble/git-ai"
+      ],
       "commitMessageTopic": "git-ai",
       "commitMessageAction": "Update",
       "commitMessageExtra": "to {{newVersion}}",
@@ -30,8 +44,7 @@
       "automerge": true,
       "automergeType": "pr",
       "automergeStrategy": "squash",
-      "ignoreTests": false,
-      "requiredStatusChecks": null
+      "ignoreTests": false
     }
   ]
 }
