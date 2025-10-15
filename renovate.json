@@ -22,11 +22,12 @@
         "/^.+\\.rb$/"
       ],
       "matchStrings": [
-        "url \"https://github\\.com/(?<depName>[^/]+/[^/]+)/releases/download/(?<currentValue>v[^/\"]+)/[^\"]+\"\\s+sha256 \"(?<currentDigest>[a-f0-9]{64})\""
+        "url \"https://github\\.com/(?<depName>[^/]+/[^/]+)/releases/download/v(?<currentValue>[^/\"]+)/git-ai-(?<platform>\\w+)-(?<arch>\\w+)\"\\s+sha256 \"(?<currentDigest>[a-f0-9]{64})\""
       ],
-      "extractVersionTemplate": "^v(?<version>.*)$",
       "datasourceTemplate": "github-releases",
-      "versioningTemplate": "semver"
+      "versioningTemplate": "semver",
+      "autoReplaceStringTemplate": "url \"https://github.com/{{{depName}}}/releases/download/v{{{newValue}}}/git-ai-{{{platform}}}-{{{arch}}}\" sha256 \"{{{newDigest}}}\"",
+      "digestTemplate": "https://github.com/{{{depName}}}/releases/download/v{{{newValue}}}/git-ai-{{{platform}}}-{{{arch}}}"
     }
   ],
   "packageRules": [
