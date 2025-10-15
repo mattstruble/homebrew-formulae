@@ -14,27 +14,16 @@
   ],
   "assigneesFromCodeOwners": true,
   "reviewersFromCodeOwners": true,
-  "customManagers": [
-    {
-      "customType": "regex",
-      "description": "Update Homebrew formula versions",
-      "managerFilePatterns": [
-        "/^.+\\.rb$/"
-      ],
-      "matchStrings": [
-        "url \"https://github\\.com/(?<depName>[^/]+/[^/]+)/archive/refs/tags/(?<currentValue>v[^/\"]+)\\.tar\\.gz\"\\s+sha256 \"(?<currentDigest>[a-f0-9]{40,64})\""
-      ],
-      "datasourceTemplate": "github-releases", 
-      "versioningTemplate": "semver"
-    }
-  ],
+  "homebrew": {
+    "enabled": true
+  },
   "packageRules": [
     {
       "matchManagers": [
-        "custom.regex"
+        "homebrew"
       ],
       "matchDepNames": [
-        "mattstruble/git-ai"
+        "git-ai"
       ],
       "automerge": true,
       "automergeType": "pr",
